@@ -16,18 +16,19 @@ function Header() {
   return (
     <div className="banner">
       <h4>Random pics of cats</h4>
-      <Link to="/">Home </Link>  <br />
-      <Link to="/test1"> Test 1</Link> <br />
-      <Link to="/test2"> Test 2</Link> <br />
+      <Link to="/cat/">Home </Link>  <br />
+      <Link to="/cat/test1"> Test 1</Link> <br />
+      <Link to="/cat/test2"> Test 2</Link> <br />
       <Link to="/inside"> Inside </Link> <br />
-      <Link to="/dog"> Dog </Link>
-      
+      <Link to="/dog"> Dog </Link> <br />
+      <Link to="/dogtest"> Dog Link 2</Link>
+       
     </div>
   );
 }
 
 function Dogs({ history }) {
-  return <MicroFrontend history={history} host={dogsHost} name="Dogs" />;
+  return <MicroFrontend history={history.location} host={dogsHost} name="Dogs" />;
 }
 
 function Cats({ history }) {
@@ -89,12 +90,13 @@ function App() {
       <React.Fragment>
       <Header />
         <Switch>
-          <Route exact path="/" component={testCat} />
-          <Route exact path="/test1" component={testCat} />
-          <Route exact path="/test2" component={testCat} />
+          <Route exact path="/cat/" component={testCat} />
+          <Route exact path="/cat/test1" component={testCat} />
+          <Route exact path="/cat/test2" component={testCat} />
           <Route exact path="/inside" component={Inside} />
           <Route exact path="/dog" component={Dogs} />
-          
+          <Route exact path="/dogtest" component={Dogs} />
+
           {/* <Route exact path="/cat/:greeting" component={GreetingCat} /> */}
         </Switch>
       </React.Fragment>
